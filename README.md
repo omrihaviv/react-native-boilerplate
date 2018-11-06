@@ -1,5 +1,5 @@
 # react-native-boilerplate
-React Native + Redux + React Navigation boilerplate
+React Native + Expo + Redux + React Navigation boilerplate
 
 ## How to make it work
 1. Make sure you have [Node.js](https://nodejs.org/en/download/) installed
