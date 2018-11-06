@@ -10,5 +10,6 @@ React Native + Redux + React Navigation boilerplate
 
 ## Learn more
 * React Native's official [Getting Started guide](https://facebook.github.io/react-native/docs/getting-started).
+* Read about [Expo's awesome SDK and platform](https://docs.expo.io/versions/latest/).
 * Read more about navigating between screens using [React Navigation](https://reactnavigation.org/docs/en/getting-started.html).
 * Learn about Redux's [integration with React & React Native](https://redux.js.org/basics/usagewithreact).
