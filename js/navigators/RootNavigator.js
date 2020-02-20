@@ -13,7 +13,11 @@ const Stack = createStackNavigator();
 class RootNavigator extends React.Component {
   render() {
     if (this.props.authInfo && this.props.authInfo.loading) {
-      return (<AuthLoadingScreen />)
+      return (
+        <NavigationContainer>
+          <AuthLoadingScreen />
+        </NavigationContainer>
+      )
     }
 
     return (
