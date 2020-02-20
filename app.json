@@ -4,10 +4,11 @@
     "description": "This project is a real dummy.",
     "slug": "DummyDemo",
     "privacy": "public",
-    "sdkVersion": "31.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
-      "android"
+      "android",
+      "web"
     ],
     "version": "1.0.0",
     "orientation": "portrait",

@@ -10,7 +10,6 @@ class HomeContainer extends React.Component {
       {
         logout: () => {
           this.props.performLogout();
-          this.props.navigation.navigate("Auth");
         }
       });
   }
