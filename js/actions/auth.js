@@ -19,6 +19,10 @@ export function performLogin(username, password) {
       //   }
       // ).then(res => res.json());
 
+      dispatch({
+        type: types.LOADING
+      });
+
       // Using setTimeout to imitate async server call. Uncomment the above to create an actual server call.
       await asyncSetTimeout(500);
       const result = {

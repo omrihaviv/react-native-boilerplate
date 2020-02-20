@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { AsyncStorage } from 'react-native';
 import { PersistGate } from "redux-persist/integration/react";
 import reducer from "./js/reducers";
 
@@ -12,7 +12,7 @@ import RootNavigator from "./js/navigators/RootNavigator";
 
 const persistConfig = {
   key: "root",
-  storage
+  storage: AsyncStorage
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

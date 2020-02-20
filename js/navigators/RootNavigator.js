@@ -1,17 +1,48 @@
-import { createSwitchNavigator } from "react-navigation";
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { ActionCreators } from "../actions";
 import AuthNavigator from "./AuthNavigator";
 import AppNavigator from "./AppNavigator";
-import AuthLoadingContainer from "../containers/AuthLoadingContainer";
+import AuthLoadingScreen from "../screens/AuthLoadingScreen";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const RootNavigator = createSwitchNavigator(
-  {
-    AuthLoading: AuthLoadingContainer,
-    Auth: AuthNavigator,
-    App: AppNavigator
-  },
-  {
-    initialRouteName: "AuthLoading"
+const Stack = createStackNavigator();
+
+class RootNavigator extends React.Component {
+  render() {
+    if (this.props.authInfo && this.props.authInfo.loading) {
+      return (<AuthLoadingScreen />)
+    }
+
+    return (
+      <NavigationContainer>
+        <Stack.Navigator headerMode='none' >
+          {this.props.authInfo &&
+            this.props.authInfo.userInfo &&
+            this.props.authInfo.loggedIn
+           ? (
+            <>
+              <Stack.Screen name="App" component={AppNavigator} />
+            </>
+          ) : (
+            <Stack.Screen name="Auth" component={AuthNavigator} />
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
   }
-);
+}
 
-export default RootNavigator;
+function mapStateToProps(state) {
+  return {
+    authInfo: state.authInfo
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RootNavigator);
